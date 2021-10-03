@@ -1,17 +1,12 @@
 package wordwrap
 
 import (
-	"runtime"
 	"strings"
 )
 
 // Wrap returns wrapped string to a given number of characters using "\n" character
 func Wrap(text string, width uint) string {
 	breakChar := "\n"
-	if runtime.GOOS == "windows" {
-		breakChar = "\r\n"
-	}
-
 	return WrapF(text, width, breakChar, false)
 }
 
