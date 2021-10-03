@@ -1,10 +1,13 @@
 package wordwrap
 
-import "strings"
+import (
+	"strings"
+)
 
 // Wrap returns wrapped string to a given number of characters using "\n" character
 func Wrap(text string, width uint) string {
-	return WrapF(text, width, "\n", false)
+	breakChar := "\n"
+	return WrapF(text, width, breakChar, false)
 }
 
 // WrapF wraps a given text with full options

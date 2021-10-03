@@ -27,6 +27,10 @@ func getCases() []testCase {
 			Name: "case03",
 			Width: 109,
 		},
+		{
+			Name: "case04",
+			Width: 20,
+		},
 	}
 }
 func TestWrap(t *testing.T) {
