@@ -41,7 +41,7 @@ func doWrap(text string, width uint, breakChar string) string {
 	lastStart = 0
 	lastSpace = 0
 
-	for current=0; current < uint(len(text)); current ++ {
+	for current = 0; current < uint(len(text)); current++ {
 		cText := string(text[current])
 		if cText != breakChar {
 			line += cText
@@ -59,19 +59,19 @@ func doWrap(text string, width uint, breakChar string) string {
 				//sumLen := width - uint(len(line))
 				if line != "" {
 					lines = append(lines, text[lastStart:current+1])
-					line  = ""
+					line = ""
 				}
 				lastStart = current + 1
 			}
 			lastSpace = current
-		} else if current - lastStart >= width && lastStart != lastSpace {
+		} else if current-lastStart >= width && lastStart != lastSpace {
 			lines = append(lines, text[lastStart:lastSpace+1])
-			line = text[lastSpace+1:current+1]
+			line = text[lastSpace+1 : current+1]
 			lastStart = lastSpace + 1
-		} else if current - lastStart >= width {
+		} else if current-lastStart >= width {
 			// long word cases
 			lines = append(lines, text[lastStart:current-1])
-			line = text[current-1:current + 1]
+			line = text[current-1 : current+1]
 			lastStart = current
 		}
 
@@ -82,4 +82,3 @@ func doWrap(text string, width uint, breakChar string) string {
 	}
 	return strings.Join(lines, breakChar)
 }
-
